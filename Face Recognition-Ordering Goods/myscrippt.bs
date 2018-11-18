@@ -1,0 +1,3 @@
+#!/bin/bash
+
+face_recognition_knn.py & readdata.py
