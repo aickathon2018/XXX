@@ -1,0 +1,29 @@
+var user = firebase.auth().currentUser;
+var name, email, photoUrl, uid, emailVerified;
+
+this.setState({error:'', loading:'loading'})
+const{firstName, surname} = this.state
+user.updateProfile({
+displayName: firstName + ' ' + surname,
+}).then(function() {
+  // Update successful.
+}).catch(function(error) {
+  // An error happened.
+});
+console.log(firstName)
+console.log(surname)
+
+if (user != null) {
+name = user.displayName;
+email = user.email;
+photoUrl = user.photoURL;
+emailVerified = user.emailVerified;
+uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+             // this value to authenticate with your backend server, if
+             // you have one. Use User.getToken() instead.
+console.log("Email Verified: " + emailVerified);
+console.log("  Provider-specific UID: " + uid);
+console.log("  Name: " + name);
+console.log("  Email: " + email);
+console.log("  Photo URL: " + photoUrl);
+}
